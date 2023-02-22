@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerPiece : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public bool moveNow;
+   public int numberOfStepsToMove;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public PathObjectsParent pathsParent;
+
+   private void Awake()
+   {
+    pathsParent = FindObjectOfType<PathObjectsParent>();
+   }
 }

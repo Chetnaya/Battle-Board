@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class BluePlayerPiece : PlayerPiece
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        MoveSteps();
+    }
+    public void MoveSteps()
+    {
+        for(int i =0; i<3; i++)
+        {
+            transform.position = pathsParent.commonPathPoints[i].transform.position;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator MoveStepsEnum()
     {
-        
+        for(int i =0; i<3; i++)
+        {
+            transform.position = pathsParent.commonPathPoints[i].transform.position;
+            yield return new WaitForSeconds(1f);
+        }
+        // transform.position = commonPathPoints[i].transform.position;
+        // yield return new WaitForSeconds(1f);
     }
 }

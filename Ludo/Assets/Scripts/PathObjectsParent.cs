@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class PathObjectsParent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public PathPoints[] commonPathPoints;
+   public PathPoints[] RedPathPoints;
+   public PathPoints[] BluePathPoints;
+   public PathPoints[] GreenPathPoints;
+   public PathPoints[] YellowPathPoints;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
