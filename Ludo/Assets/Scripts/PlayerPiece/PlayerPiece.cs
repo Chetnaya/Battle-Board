@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerPiece : MonoBehaviour
 {
+   public bool canMove;
    public bool moveNow;
    public int numberOfStepsToMove;
 
