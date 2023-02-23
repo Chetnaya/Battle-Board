@@ -5,16 +5,49 @@ using UnityEngine;
 public class RollingDice : MonoBehaviour
 {
     [SerializeField] int numberGot;
+    [SerializeField] GameObject rollingDiceAnimation;
     [SerializeField] SpriteRenderer numberedSpHolder;
     [SerializeField] Sprite[] numberedSprites;
 
+    Coroutine generateRanNOnDice_Coroutine;
     private void Update()
     {
         if(Input.GetMouseButton(0))
         {
+            generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
+
             numberGot = Random.Range(0, 6);
             numberedSpHolder.sprite = numberedSprites[numberGot];
+            numberGot += 1;
         }
+    }
+    IEnumerator GenerateRandomNOnDice_Enum()
+    {
+        yield return new WaitForEndOfFrame();
+        numberedSpHolder.gameObject.SetActive(false);
+        rollingDiceAnimation.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        numberGot = Random.Range(0, 6);
+        numberedSpHolder.sprite = numberedSprites[numberGot];
+        numberGot += 1;
+
+        numberedSpHolder.gameObject.SetActive(true);
+        rollingDiceAnimation.SetActive(false);
+        yield return new WaitForEndOfFrame();
+
+
+        if(generateRanNOnDice_Coroutine != null)
+        {
+            StopCoroutine(generateRanNOnDice_Coroutine);    
+        }
+        // if(canMove)
+        // {
+        //     for(int i =0; i<6; i++)
+        //     {
+        //         transform.position = pathsParent.commonPathPoints[i].transform.position;
+        //         yield return new WaitForSeconds(0.25f);
+        //     }    
+        // }
     }
 
 
