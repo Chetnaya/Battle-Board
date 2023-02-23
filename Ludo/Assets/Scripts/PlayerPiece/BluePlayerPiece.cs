@@ -6,7 +6,8 @@ public class BluePlayerPiece : PlayerPiece
 {
     private void Start()
     {
-        MoveSteps();
+        // MoveSteps();
+        StartCoroutine("MoveStepsEnum");
     }
     public void MoveSteps()
     {
@@ -22,7 +23,7 @@ public class BluePlayerPiece : PlayerPiece
         for(int i =0; i<6; i++)
         {
             transform.position = pathsParent.commonPathPoints[i].transform.position;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.25f);
         }   
         // transform.position = commonPathPoints[i].transform.position;
         // yield return new WaitForSeconds(1f);
