@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1009826297102324247}
   - component: {fileID: 1009826297102324246}
   - component: {fileID: 4726424685172567595}
+  - component: {fileID: 804555538921885439}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Untagged
@@ -97,3 +98,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf97870a2348b648bb42667040e15b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveNow: 0
+  numberOfStepsToMove: 0
+  pathsParent: {fileID: 0}
+--- !u!61 &804555538921885439
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009826297102324232}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.8, y: 10.8}
+    newSize: {x: 10.8, y: 10.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.8, y: 10.8}
+  m_EdgeRadius: 0
