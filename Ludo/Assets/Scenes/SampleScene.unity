@@ -4021,6 +4021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberGot: 0
+  rollingDiceAnimation: {fileID: 1274227963}
   numberedSpHolder: {fileID: 1274227965}
   numberedSprites:
   - {fileID: 21300000, guid: c033ed0f8efae454cbc0f257d06b5e99, type: 3}
