@@ -10,19 +10,20 @@ public class BluePlayerPiece : PlayerPiece
     }
     public void MoveSteps()
     {
-        for(int i =0; i<3; i++)
+        for(int i =0; i<6; i++)
         {
             transform.position = pathsParent.commonPathPoints[i].transform.position;
         }
     }
 
+    //I dont understand this bruh
     IEnumerator MoveStepsEnum()
     {
-        for(int i =0; i<3; i++)
+        for(int i =0; i<6; i++)
         {
             transform.position = pathsParent.commonPathPoints[i].transform.position;
             yield return new WaitForSeconds(1f);
-        }
+        }   
         // transform.position = commonPathPoints[i].transform.position;
         // yield return new WaitForSeconds(1f);
     }
