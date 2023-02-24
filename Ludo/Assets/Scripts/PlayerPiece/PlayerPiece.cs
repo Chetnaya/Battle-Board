@@ -10,9 +10,36 @@ public class PlayerPiece : MonoBehaviour
 
    public PathObjectsParent pathsParent;
 
+   Coroutine MoveSteps_Coroutine;
+
    private void Awake()
    {
     pathsParent = FindObjectOfType<PathObjectsParent>();
    }
+
+   public void MoveSteps()
+   {
+      MoveSteps_Coroutine = StartCoroutine(MoveSteps_Enum());
+   }
+
+   IEnumerator MoveSteps_Enum()
+    {
+        yield return new WaitForSeconds(0.25f);
+        if(canMove)
+        {
+            for(int i =0; i<6; i++)
+            {
+                transform.position = pathsParent.commonPathPoints[i].transform.position;
+                yield return new WaitForSeconds(0.25f);
+            }    
+        }
+        
+        if(MoveSteps_Coroutine != null)
+        {
+         StopCoroutine(MoveSteps_Coroutine);
+        }
+        
+    }
+
 }
  
