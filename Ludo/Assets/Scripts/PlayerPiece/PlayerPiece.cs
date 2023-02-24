@@ -6,7 +6,7 @@ public class PlayerPiece : MonoBehaviour
 {
    public bool canMove;
    public bool moveNow;
-   public int numberOfStepsToMove;
+   public int numberOfStepsAlreadyMoved;
 
    public PathObjectsParent pathsParent;
 
@@ -27,15 +27,18 @@ public class PlayerPiece : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         int numOfStepsToMove = GameManager.gm.numOfStepsToMove;
+      //   numberOfStepsAlreadyMoved += numOfStepsToMove;
+
         if(canMove)
         {
-            for(int i =0; i<numOfStepsToMove; i++)
+            for(int i =numberOfStepsAlreadyMoved; i< (numberOfStepsAlreadyMoved +numOfStepsToMove); i++)
             {
                 transform.position = pathsParent.commonPathPoints[i].transform.position;
                 yield return new WaitForSeconds(0.25f);
             }    
         }
-        
+        numberOfStepsAlreadyMoved += numOfStepsToMove;
+               
         if(MoveSteps_Coroutine != null)
         {
          StopCoroutine(MoveSteps_Coroutine);
