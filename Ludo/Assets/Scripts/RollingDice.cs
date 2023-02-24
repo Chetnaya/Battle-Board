@@ -12,16 +12,21 @@ public class RollingDice : MonoBehaviour
     bool canDiceRoll = true;
 
     Coroutine generateRanNOnDice_Coroutine;
-    private void Update()
-    {
-        if(Input.GetMouseButton(0))
-        {
-            generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
+    // private void Update()
+    // {
+    //     if(Input.GetMouseButton(0))
+    //     {
+    //         generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
 
-            numberGot = Random.Range(0, 6);
-            numberedSpHolder.sprite = numberedSprites[numberGot];
-            numberGot += 1;
-        }
+    //         numberGot = Random.Range(0, 6);
+    //         numberedSpHolder.sprite = numberedSprites[numberGot];
+    //         numberGot += 1;
+    //     }
+    // }
+
+    private void OnMouseDown()
+    {
+        generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
     }
     IEnumerator GenerateRandomNOnDice_Enum()
     {
