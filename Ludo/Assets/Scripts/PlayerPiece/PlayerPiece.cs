@@ -25,9 +25,11 @@ public class PlayerPiece : MonoBehaviour
    IEnumerator MoveSteps_Enum()
     {
         yield return new WaitForSeconds(0.25f);
+
+        int numOfStepsToMove = GameManager.gm.numOfStepsToMove;
         if(canMove)
         {
-            for(int i =0; i<6; i++)
+            for(int i =0; i<numOfStepsToMove; i++)
             {
                 transform.position = pathsParent.commonPathPoints[i].transform.position;
                 yield return new WaitForSeconds(0.25f);

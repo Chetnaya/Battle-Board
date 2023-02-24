@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BluePlayerPiece : PlayerPiece
 {
-    private void Start()
-    {
-        // MoveSteps();
-    }
+    // private void Start()
+    // {
+    //     // MoveSteps();
+    // }
     private void OnMouseDown()
     {
         canMove = true;
