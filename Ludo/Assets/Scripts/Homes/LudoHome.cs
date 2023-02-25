@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class LudoHome : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public RollingDice rollingDice;
+    public PlayerPiece[] playerPieces;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
