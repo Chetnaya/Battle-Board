@@ -4,35 +4,21 @@ using UnityEngine;
 
 public class BluePlayerPiece : PlayerPiece
 {
-    // private void Start()
-    // {
-    //     // MoveSteps();
-    // }
-    private void OnMouseDown()
+    RollingDice blueHomeRollingDice;
+
+    private void Start()
     {
-        canMove = true;
-        MoveSteps();
-        // StartCoroutine("MoveStepsEnum");
+        blueHomeRollingDice = GetComponentInParent<BlueHome>().rollingDice;   
     }
 
-    // public void MoveSteps()
-    // {
-    //     for(int i =0; i<6; i++)
-    //     {
-    //         transform.position = pathsParent.commonPathPoints[i].transform.position;
-    //     }
-    // }
+    private void OnMouseDown()
+    {
+        if (GameManager.gm.rolledDice != null && GameManager.gm.rolledDice == blueHomeRollingDice)
+        {
+            canMove = true;
+        }
 
-    // IEnumerator MoveStepsEnum()
-    // {
-    //     yield return new WaitForSeconds(0.25f);
-    //     if(canMove)
-    //     {
-    //         for(int i =0; i<6; i++)
-    //         {
-    //             transform.position = pathsParent.commonPathPoints[i].transform.position;
-    //             yield return new WaitForSeconds(0.25f);
-    //         }    
-    //     }
-    // }
+        MoveSteps();
+    }
+
 }

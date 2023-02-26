@@ -6195,6 +6195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfStepsToMove: 0
+  rolledDice: {fileID: 0}
 --- !u!4 &1626166555
 Transform:
   m_ObjectHideFlags: 0
@@ -6632,7 +6633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_Name
-      value: RollingDice (1)
+      value: RollingDice_Blue
       objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254708, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_RootOrder
@@ -7072,7 +7073,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_Name
-      value: RollingDice (3)
+      value: RollingDice_Green
       objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254708, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_RootOrder
@@ -7326,7 +7327,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_Name
-      value: RollingDice (2)
+      value: RollingDice_Red
       objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254708, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_RootOrder
@@ -7386,6 +7387,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 927091967}
     m_Modifications:
+    - target: {fileID: -5058378790665063351, guid: ebb1dd7511242eb4eadf86e28164061c, type: 3}
+      propertyPath: canMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8844102819329116982, guid: ebb1dd7511242eb4eadf86e28164061c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8511,7 +8516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_Name
-      value: RollingDice
+      value: RollingDice_yellow
       objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254708, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_RootOrder

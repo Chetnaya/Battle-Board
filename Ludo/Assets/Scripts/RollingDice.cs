@@ -12,17 +12,6 @@ public class RollingDice : MonoBehaviour
     bool canDiceRoll = true;
 
     Coroutine generateRanNOnDice_Coroutine;
-    // private void Update()
-    // {
-    //     if(Input.GetMouseButton(0))
-    //     {
-    //         generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
-
-    //         numberGot = Random.Range(0, 6);
-    //         numberedSpHolder.sprite = numberedSprites[numberGot];
-    //         numberGot += 1;
-    //     }
-    // }
 
     private void OnMouseDown()
     {
@@ -42,6 +31,7 @@ public class RollingDice : MonoBehaviour
             numberGot += 1;
 
             GameManager.gm.numOfStepsToMove = numberGot; 
+            GameManager.gm.rolledDice = this;
 
 
             numberedSpHolder.gameObject.SetActive(true);
@@ -54,16 +44,6 @@ public class RollingDice : MonoBehaviour
                 StopCoroutine(generateRanNOnDice_Coroutine);    
             }
         }
-        
-        
-        // if(canMove)
-        // {
-        //     for(int i =0; i<6; i++)
-        //     {
-        //         transform.position = pathsParent.commonPathPoints[i].transform.position;
-        //         yield return new WaitForSeconds(0.25f);
-        //     }    
-        // }
     }
 
 

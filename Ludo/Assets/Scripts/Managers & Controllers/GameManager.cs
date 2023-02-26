@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
 
     public int numOfStepsToMove;
+    public RollingDice rolledDice;
 
     private void Awake()
     {
