@@ -13,9 +13,18 @@ public class BluePlayerPiece : PlayerPiece
 
     private void OnMouseDown()
     {
-        if (GameManager.gm.rolledDice != null && GameManager.gm.rolledDice == blueHomeRollingDice)
+        if(GameManager.gm.rolledDice != null)
         {
-            canMove = true;   
+            if(!isReady)
+            {
+                if(GameManager.gm,rolledDice == blueHomeRollingDice && GameManager.gm.numOfStepsToMove == 6){
+                    isReady = true;
+                }
+            }
+            if (GameManager.gm.rolledDice == blueHomeRollingDice && isReady)
+            {
+                canMove = true;   
+            }
         }
 
         MoveSteps();
