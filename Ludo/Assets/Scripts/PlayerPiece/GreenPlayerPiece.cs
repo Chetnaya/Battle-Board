@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class GreenPlayerPiece : PlayerPiece
 {
-    // Start is called before the first frame update
-    void Start()
+    RollingDice greenHomeRollingDice;
+
+    private void Start()
     {
-        
+        greenHomeRollingDice = GetComponentInParent<GreenHome>().rollingDice;   
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        if (GameManager.gm.rolledDice != null && GameManager.gm.rolledDice == greenHomeRollingDice)
+        {
+            canMove = true;   
+        }
+
+        MoveSteps();
     }
 }
