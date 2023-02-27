@@ -23,10 +23,11 @@ public class PlayerPiece : MonoBehaviour
       MoveSteps_Coroutine = StartCoroutine(MoveSteps_Enum(pathPointsToMoveOn_));
    }
 
-   public void makePlayerReadyToMove()
+   public void makePlayerReadyToMove(PathPoints[] pathPointsToMoveOn_)
    {
     isReady = true;
-    transform.position = pathsParent.commonPathPoints[0].transform.position;
+    transform.position = pathPointsToMoveOn_[0].transform.position;
+    numberOfStepsAlreadyMoved = 1;
    }
 
    IEnumerator MoveSteps_Enum(PathPoints[] pathPointsToMoveOn_)

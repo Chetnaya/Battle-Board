@@ -19,7 +19,7 @@ public class BluePlayerPiece : PlayerPiece
             {
                 if(GameManager.gm.rolledDice == blueHomeRollingDice && GameManager.gm.numOfStepsToMove == 6)
                 {
-                    makePlayerReadyToMove();
+                    makePlayerReadyToMove(pathsParent.BluePathPoints);
                     GameManager.gm.numOfStepsToMove = 0;
                     return;
                 }
