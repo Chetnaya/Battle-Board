@@ -4848,11 +4848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.008
+      value: 0.008000016
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.159
+      value: -0.15899998
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6842,7 +6842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.147
+      value: -0.14699996
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7568,20 +7568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce0dd0842b2a62429ce745553c2b76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commonPathPoints:
-  - {fileID: 723245939}
-  - {fileID: 539377874}
-  - {fileID: 1647837322}
-  - {fileID: 1582360189}
-  - {fileID: 2046712094}
-  - {fileID: 93907089}
-  - {fileID: 1503439122}
-  - {fileID: 847421811}
-  - {fileID: 1862431501}
-  - {fileID: 860742336}
-  - {fileID: 305081164}
-  - {fileID: 1924515034}
-  - {fileID: 859979835}
+  commonPathPoints: []
+  RedPathPoints:
   - {fileID: 434574489}
   - {fileID: 1165007145}
   - {fileID: 1599331519}
@@ -7621,12 +7609,24 @@ MonoBehaviour:
   - {fileID: 534422329}
   - {fileID: 774709247}
   - {fileID: 1470820323}
-  RedPathPoints:
+  - {fileID: 723245939}
+  - {fileID: 539377874}
+  - {fileID: 1647837322}
+  - {fileID: 1582360189}
+  - {fileID: 2046712094}
+  - {fileID: 93907089}
+  - {fileID: 1503439122}
+  - {fileID: 847421811}
+  - {fileID: 1862431501}
+  - {fileID: 860742336}
+  - {fileID: 305081164}
+  - {fileID: 1924515034}
   - {fileID: 648354372}
   - {fileID: 1581121394}
   - {fileID: 848915695}
   - {fileID: 1527078762}
   - {fileID: 1121404653}
+  - {fileID: 1419693288}
   BluePathPoints:
   - {fileID: 723245939}
   - {fileID: 539377874}
@@ -7686,17 +7686,121 @@ MonoBehaviour:
   - {fileID: 655103616}
   - {fileID: 1419693288}
   GreenPathPoints:
-  - {fileID: 643664412}
-  - {fileID: 1157790621}
-  - {fileID: 1811620574}
-  - {fileID: 441671801}
-  - {fileID: 2022929910}
-  YellowPathPoints:
+  - {fileID: 878237611}
+  - {fileID: 1188659694}
+  - {fileID: 1635804611}
+  - {fileID: 930906366}
+  - {fileID: 56501669}
+  - {fileID: 1435389453}
+  - {fileID: 1109557517}
+  - {fileID: 1154353929}
+  - {fileID: 1044186992}
+  - {fileID: 1188703274}
+  - {fileID: 1852641519}
+  - {fileID: 421290670}
+  - {fileID: 758817971}
+  - {fileID: 1492000296}
+  - {fileID: 33480471}
+  - {fileID: 2019133805}
+  - {fileID: 814561430}
+  - {fileID: 1977714660}
+  - {fileID: 873921962}
+  - {fileID: 304822664}
+  - {fileID: 493553748}
+  - {fileID: 301399464}
+  - {fileID: 287563142}
+  - {fileID: 534422329}
+  - {fileID: 774709247}
+  - {fileID: 1470820323}
+  - {fileID: 723245939}
+  - {fileID: 539377874}
+  - {fileID: 1647837322}
+  - {fileID: 1582360189}
+  - {fileID: 2046712094}
+  - {fileID: 93907089}
+  - {fileID: 1503439122}
+  - {fileID: 847421811}
+  - {fileID: 1862431501}
+  - {fileID: 860742336}
+  - {fileID: 305081164}
+  - {fileID: 1924515034}
+  - {fileID: 859979835}
+  - {fileID: 434574489}
+  - {fileID: 1165007145}
+  - {fileID: 1599331519}
+  - {fileID: 1724487900}
+  - {fileID: 909987538}
+  - {fileID: 809852825}
+  - {fileID: 2000278343}
+  - {fileID: 2042969147}
+  - {fileID: 481511864}
+  - {fileID: 2104969630}
+  - {fileID: 257962568}
+  - {fileID: 96208382}
   - {fileID: 1485757245}
   - {fileID: 56508651}
   - {fileID: 2040750139}
   - {fileID: 1509898328}
   - {fileID: 231397419}
+  - {fileID: 1419693288}
+  YellowPathPoints:
+  - {fileID: 1492000296}
+  - {fileID: 33480471}
+  - {fileID: 2019133805}
+  - {fileID: 814561430}
+  - {fileID: 1977714660}
+  - {fileID: 873921962}
+  - {fileID: 304822664}
+  - {fileID: 493553748}
+  - {fileID: 301399464}
+  - {fileID: 287563142}
+  - {fileID: 534422329}
+  - {fileID: 774709247}
+  - {fileID: 1470820323}
+  - {fileID: 723245939}
+  - {fileID: 539377874}
+  - {fileID: 1647837322}
+  - {fileID: 1582360189}
+  - {fileID: 2046712094}
+  - {fileID: 93907089}
+  - {fileID: 1503439122}
+  - {fileID: 847421811}
+  - {fileID: 1862431501}
+  - {fileID: 860742336}
+  - {fileID: 305081164}
+  - {fileID: 1924515034}
+  - {fileID: 859979835}
+  - {fileID: 434574489}
+  - {fileID: 1165007145}
+  - {fileID: 1599331519}
+  - {fileID: 1724487900}
+  - {fileID: 909987538}
+  - {fileID: 809852825}
+  - {fileID: 2000278343}
+  - {fileID: 2042969147}
+  - {fileID: 481511864}
+  - {fileID: 2104969630}
+  - {fileID: 257962568}
+  - {fileID: 96208382}
+  - {fileID: 1735445184}
+  - {fileID: 878237611}
+  - {fileID: 1188659694}
+  - {fileID: 1635804611}
+  - {fileID: 930906366}
+  - {fileID: 56501669}
+  - {fileID: 1435389453}
+  - {fileID: 1109557517}
+  - {fileID: 1154353929}
+  - {fileID: 1044186992}
+  - {fileID: 1188703274}
+  - {fileID: 1852641519}
+  - {fileID: 421290670}
+  - {fileID: 643664412}
+  - {fileID: 1157790621}
+  - {fileID: 1811620574}
+  - {fileID: 441671801}
+  - {fileID: 2022929910}
+  - {fileID: 1419693288}
 --- !u!4 &1914803033
 Transform:
   m_ObjectHideFlags: 0
@@ -8517,11 +8621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.008
+      value: 0.008000016
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.164
+      value: 0.16400003
       objectReference: {fileID: 0}
     - target: {fileID: 4223593267054211314, guid: 653673f78fe5bb54c91c2b050efe9acb, type: 3}
       propertyPath: m_LocalPosition.z
