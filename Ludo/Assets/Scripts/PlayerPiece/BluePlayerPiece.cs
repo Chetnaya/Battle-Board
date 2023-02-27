@@ -15,7 +15,7 @@ public class BluePlayerPiece : PlayerPiece
     {
         if (GameManager.gm.rolledDice != null && GameManager.gm.rolledDice == blueHomeRollingDice)
         {
-            canMove = true;
+            canMove = true;   
         }
 
         MoveSteps();
