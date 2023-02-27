@@ -17,8 +17,10 @@ public class BluePlayerPiece : PlayerPiece
         {
             if(!isReady)
             {
-                if(GameManager.gm,rolledDice == blueHomeRollingDice && GameManager.gm.numOfStepsToMove == 6){
-                    isReady = true;
+                if(GameManager.gm.rolledDice == blueHomeRollingDice && GameManager.gm.numOfStepsToMove == 6)
+                {
+                    makePlayerReadyToMove();
+                    return;
                 }
             }
             if (GameManager.gm.rolledDice == blueHomeRollingDice && isReady)

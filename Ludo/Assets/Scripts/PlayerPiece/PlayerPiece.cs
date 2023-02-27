@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerPiece : MonoBehaviour
 {
+   public bool isReady; 
    public bool canMove;
    public bool moveNow;
    public int numberOfStepsAlreadyMoved;
@@ -22,12 +23,17 @@ public class PlayerPiece : MonoBehaviour
       MoveSteps_Coroutine = StartCoroutine(MoveSteps_Enum());
    }
 
+   public void makePlayerReadyToMove()
+   {
+    isReady = true;
+    transform.position = pathsParent.commonPathPoints[0].transform.position;
+   }
+
    IEnumerator MoveSteps_Enum()
     {
         yield return new WaitForSeconds(0.25f);
 
         int numOfStepsToMove = GameManager.gm.numOfStepsToMove;
-      //   numberOfStepsAlreadyMoved += numOfStepsToMove;
 
         if(canMove)
         {
@@ -38,7 +44,7 @@ public class PlayerPiece : MonoBehaviour
             }    
         }
         numberOfStepsAlreadyMoved += numOfStepsToMove;
-               
+
         if(MoveSteps_Coroutine != null)
         {
          StopCoroutine(MoveSteps_Coroutine);
