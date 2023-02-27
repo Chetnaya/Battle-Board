@@ -30,6 +30,6 @@ public class GreenPlayerPiece : PlayerPiece
             }
         }
 
-        MoveSteps();
+        MoveSteps(pathsParent.GreenPathPoints);
     }
 }

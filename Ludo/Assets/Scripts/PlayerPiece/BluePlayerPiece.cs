@@ -30,7 +30,7 @@ public class BluePlayerPiece : PlayerPiece
             }
         }
 
-        MoveSteps();
+        MoveSteps(pathsParent.BluePathPoints);
     }
 
 }
