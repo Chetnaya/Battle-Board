@@ -40,17 +40,34 @@ public class PlayerPiece : MonoBehaviour
         {
             for(int i =numberOfStepsAlreadyMoved; i< (numberOfStepsAlreadyMoved +numOfStepsToMove); i++)
             {
-                transform.position = pathPointsToMoveOn_[i].transform.position;
-                yield return new WaitForSeconds(0.25f);
+                if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
+                {
+                    transform.position = pathPointsToMoveOn_[i].transform.position;
+                    yield return new WaitForSeconds(0.25f);
+                }
             }    
         }
-        numberOfStepsAlreadyMoved += numOfStepsToMove;
+        
+        if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
+        {
+            numberOfStepsAlreadyMoved += numOfStepsToMove;
+        }
 
         if(MoveSteps_Coroutine != null)
         {
-         StopCoroutine(MoveSteps_Coroutine);
+            StopCoroutine(MoveSteps_Coroutine);
         }
         
+    }
+    bool isPathPointAvailableToMove(int numOfStepsToMove_, int numberOfStepsAlreadyMoved_ , PathPoints[] pathPointsToMoveOn_)
+    {
+        int leftNumberOfPathPoint = pathPointsToMoveOn_.Length - numberOfStepsAlreadyMoved_;
+
+        if(leftNumberOfPathPoint >= numOfStepsToMove_)
+        {
+            return true;
+        }
+        return false;
     }
 
 }
