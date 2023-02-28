@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PathPoints : MonoBehaviour
 {
+    public PathObjectsParent pathObjParent;
     public List<PlayerPiece> playerPiecesList  = new List<PlayerPiece>();
+
+    void Start()
+    {
+        pathObjParent = GetComponentInParent<PathObjectsParent>();  
+    }
 
     public void AddPlayerPiece(PlayerPiece playerPiece_)
     {
@@ -27,8 +33,11 @@ public class PathPoints : MonoBehaviour
         {
             for(int i = 0; i < playerPiecesList.Count; i++)
             {
-                playerPiecesList[i].transform.localScale = new Vector3(0.01f, 0.01f, 1f);
+                playerPiecesList[i].transform.localScale = new Vector3(pathObjParent.scales[playerPiecesList.Count - 1], pathObjParent.scales[playerPiecesList.Count-1], 1f);
+                
             }
         }
+
+        //CodeSnippet here -> 19:55
     }
 }
