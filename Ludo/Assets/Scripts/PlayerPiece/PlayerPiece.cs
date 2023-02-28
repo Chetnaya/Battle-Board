@@ -63,7 +63,11 @@ public class PlayerPiece : MonoBehaviour
             numberOfStepsAlreadyMoved += numOfStepsToMove;
 
             GameManager.gm.RemovePathPoint(previousPathPoint);
-            currentPathPoint = pathPointsToMoveOn_[numberOfStepsAlreadyMoved];
+            previousPathPoint.RemovePlayerPiece(this);
+            currentPathPoint = pathPointsToMoveOn_[numberOfStepsAlreadyMoved - 1];
+
+            currentPathPoint.AddPlayerPiece(this);
+
             GameManager.gm.AddPathPoint(currentPathPoint);
             previousPathPoint = currentPathPoint;
         }

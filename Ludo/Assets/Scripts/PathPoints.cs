@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathPoints : MonoBehaviour
 {
-    List<PlayerPiece> playerPieces = new List<PlayerPiece>();
+    public List<PlayerPiece> playerPieces = new List<PlayerPiece>();
 
     public void AddPlayerPiece(PlayerPiece playerPiece_)
     {
