@@ -9,6 +9,7 @@ public class PathPoints : MonoBehaviour
     public void AddPlayerPiece(PlayerPiece playerPiece_)
     {
         playerPiecesList.Add(playerPiece_);
+        RescaleAndRepositionAllPlayerPieces();
     }
 
     public void RemovePlayerPiece(PlayerPiece playerPiece_)
@@ -16,6 +17,7 @@ public class PathPoints : MonoBehaviour
         if(playerPiecesList.Contains(playerPiece_))
         {
             playerPiecesList.Remove(playerPiece_);
+            RescaleAndRepositionAllPlayerPieces();
         } 
     }
     //To rescale the player when they are on the same block
@@ -25,7 +27,7 @@ public class PathPoints : MonoBehaviour
         {
             for(int i = 0; i < playerPiecesList.Count; i++)
             {
-                playerPiecesList[i].transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                playerPiecesList[i].transform.localScale = new Vector3(0.01f, 0.01f, 1f);
             }
         }
     }
