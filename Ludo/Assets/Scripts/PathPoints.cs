@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class PathPoints : MonoBehaviour
 {
-    public List<PlayerPiece> playerPieces = new List<PlayerPiece>();
+    public List<PlayerPiece> playerPiecesList  = new List<PlayerPiece>();
 
     public void AddPlayerPiece(PlayerPiece playerPiece_)
     {
-        playerPieces.Add(playerPiece_);
+        playerPiecesList.Add(playerPiece_);
     }
 
     public void RemovePlayerPiece(PlayerPiece playerPiece_)
     {
-        if(playerPieces.Contains(playerPiece_))
+        if(playerPiecesList.Contains(playerPiece_))
         {
-            playerPieces.Remove(playerPiece_);
+            playerPiecesList.Remove(playerPiece_);
+        } 
+    }
+    //To rescale the player when they are on the same block
+    void RescaleAndRepositionAllPlayerPieces()
+    {
+        if(playerPiecesList.Count > 1)
+        {
+            for(int i = 0; i < playerPiecesList.Count; i++)
+            {
+                playerPiecesList[i].transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+            }
         }
-        // else
-        // {
-        //     Debug.Log("Path point not found to be removed."); 
-        // }
     }
 }
