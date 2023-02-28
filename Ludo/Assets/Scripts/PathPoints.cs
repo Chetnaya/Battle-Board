@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PathPoints : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    List<PlayerPiece> playerPieces = new List<PlayerPiece>();
+
+    public void AddPlayerPiece(PlayerPiece playerPiece_)
     {
-        
+        playerPieces.Add(playerPiece_);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemovePlayerPiece(PlayerPiece playerPiece_)
     {
-        
+        if(playerPieces.Contains(playerPiece_))
+        {
+            playerPieces.Remove(playerPiece_);
+        }
+        // else
+        // {
+        //     Debug.Log("Path point not found to be removed."); 
+        // }
     }
 }

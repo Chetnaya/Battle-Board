@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
 
     public void RemovePathPoint(PathPoints PathPoints_)
     {
-        playerOnPathPointsList.Remove(PathPoints_);
+        if(playerOnPathPointsList.Contains(PathPoints_))
+        {
+            playerOnPathPointsList.Remove(PathPoints_);
+        }
+        else
+        {
+            Debug.Log("Path point not found to be removed."); 
+        }
     }
 }

@@ -30,9 +30,12 @@ public class PlayerPiece : MonoBehaviour
     isReady = true;
     transform.position = pathPointsToMoveOn_[0].transform.position;
     numberOfStepsAlreadyMoved = 1;
-    
-    previousPathPoint = pathPointsToMoveOn_[0]
-    currentPathPoint = pathPointsToMoveOn_[0]
+
+    previousPathPoint = pathPointsToMoveOn_[0];
+    currentPathPoint = pathPointsToMoveOn_[0];
+
+    // GameManager.gm.RemovePathPoint(previousPathPoint);
+    GameManager.gm.AddPathPoint(currentPathPoint);
 
    }
 
@@ -49,7 +52,7 @@ public class PlayerPiece : MonoBehaviour
                 if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
                 {
                     transform.position = pathPointsToMoveOn_[i].transform.position;
-                    GameManager.gm.RemovePathPoint(pathPointsToMoveOn_[i]);
+                    // GameManager.gm.RemovePathPoint(pathPointsToMoveOn_[i]);
                     yield return new WaitForSeconds(0.25f);
                 }
             }    
@@ -58,6 +61,11 @@ public class PlayerPiece : MonoBehaviour
         if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
         {
             numberOfStepsAlreadyMoved += numOfStepsToMove;
+
+            GameManager.gm.RemovePathPoint(previousPathPoint);
+            currentPathPoint = pathPointsToMoveOn_[numberOfStepsAlreadyMoved];
+            GameManager.gm.AddPathPoint(currentPathPoint);
+            previousPathPoint = currentPathPoint;
         }
 
         if(MoveSteps_Coroutine != null)
