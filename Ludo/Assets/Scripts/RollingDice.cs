@@ -26,7 +26,7 @@ public class RollingDice : MonoBehaviour
             numberedSpHolder.gameObject.SetActive(false);
             rollingDiceAnimation.SetActive(true);
             yield return new WaitForSeconds(1f);
-            numberGot = Random.Range(0, 6);
+            numberGot = Random.Range(4, 6); //Should be 0 - 6
             numberedSpHolder.sprite = numberedSprites[numberGot];
             numberGot += 1;
 
