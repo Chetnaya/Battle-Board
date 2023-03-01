@@ -29,15 +29,45 @@ public class PathPoints : MonoBehaviour
     //To rescale the player when they are on the same block
     void RescaleAndRepositionAllPlayerPieces()
     {
-        if(playerPiecesList.Count > 1)
+        int plsCount = playerPiecesList.Count;
+        bool isOdd = (plsCount % 2) == 0? false:true;
+        // bool isOdd;
+        // if(plsCount % 2 ==0)
+        // {
+        //     isOdd = false;
+        // }
+        // else
+        // {
+        //     isOdd = true;
+        // }
+        int extent = plsCount / 2;
+        int counter = 0;
+        
+        if(isOdd)
         {
-            for(int i = 0; i < playerPiecesList.Count; i++)
+            for(int i = -extent; i<=extent; i++)
             {
-                playerPiecesList[i].transform.localScale = new Vector3(pathObjParent.scales[playerPiecesList.Count - 1], pathObjParent.scales[playerPiecesList.Count-1], 1f);
-                
+                playerPiecesList[counter].transform.localScale = new Vector3(pathObjParent.scales[plsCount - 1], pathObjParent.scales[plsCount -1], 1f);
+
+                playerPiecesList[counter].transform.localScale = new Vector3(transform.position.x + (i * pathObjParent.positionsDifference[plsCount - 1]), transform.position.y, 0f );
+                counter++;
             }
         }
-
-        //CodeSnippet here -> 19:55
+        else
+        {
+            for(int i = -extent; i<extent; i++)
+            {
+                playerPiecesList[counter].transform.localScale = new Vector3(pathObjParent.scales[plsCount-1], pathObjParent.scales[plsCount - 1], 1f);
+                playerPiecesList[counter].transform.localScale = new Vector3(transform.position.x + ( i * pathObjParent.positionsDifference[plsCount - 1]), transform.position.y, 0f);
+            }
+        }
+        // if(playerPiecesList.Count > 1)
+        // {
+        //     for(int i = 0; i < playerPiecesList.Count; i++)
+        //     {
+        //         playerPiecesList[i].transform.localScale = new Vector3(pathObjParent.scales[playerPiecesList.Count - 1], pathObjParent.scales[playerPiecesList.Count-1], 1f);
+                
+        //     }
+        // }
     }
 }
