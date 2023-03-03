@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class PlayerPiece : MonoBehaviour
 {
+    
    public bool isReady; 
    public bool canMove;
    public bool moveNow;
    public int numberOfStepsAlreadyMoved;
+
+   public Color color;
+   public Vector3 originalPosition;
+
 
    public PathObjectsParent pathsParent;
    public PathPoints previousPathPoint;
    public PathPoints currentPathPoint;
 
    Coroutine MoveSteps_Coroutine;
+
+   void Start()
+   {
+     originalPosition = transform.position;  
+   }
 
    private void Awake()
    {
@@ -23,7 +33,33 @@ public class PlayerPiece : MonoBehaviour
    public void MoveSteps(PathPoints[] pathPointsToMoveOn_)
    {
       MoveSteps_Coroutine = StartCoroutine(MoveSteps_Enum(pathPointsToMoveOn_));
+
+      //Check if the current path point has any opponent player pieces
+      if(currentPathPoint != null)
+      {
+        foreach(PlayerPiece playerPiece in currentPathPoint.playerPiecesList)
+        {
+            if (playerPiece != this && playerPiece.color != color)
+            {
+                // Kill the opponent player piece
+                playerPiece.Kill();
+                break;
+            }
+        }
+      }
    }
+
+   public void Kill()
+   {
+    // Reposition the player piece to the original position and make it not ready to move
+    isReady = false;
+    canMove = false;
+    transform.position = originalPosition;
+    numberOfStepsAlreadyMoved = 0;
+    previousPathPoint = null;
+    currentPathPoint.RemovePlayerPiece(this);
+    currentPathPoint = null;
+    }
 
    public void makePlayerReadyToMove(PathPoints[] pathPointsToMoveOn_)
    {
@@ -48,7 +84,7 @@ public class PlayerPiece : MonoBehaviour
         if(canMove)
         {
             previousPathPoint.RescaleAndRepositionAllPlayerPieces();
-            
+
             for(int i =numberOfStepsAlreadyMoved; i< (numberOfStepsAlreadyMoved +numOfStepsToMove); i++)
             {   
                 if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))

@@ -27,7 +27,7 @@ public class PathPoints : MonoBehaviour
         } 
     }
     //To rescale the player when they are on the same block
-    void RescaleAndRepositionAllPlayerPieces()
+    public void RescaleAndRepositionAllPlayerPieces()
     {
         int plsCount = playerPiecesList.Count;
         bool isOdd = (plsCount % 2) == 0? false :  true;
