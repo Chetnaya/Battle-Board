@@ -31,15 +31,9 @@ public class PathPoints : MonoBehaviour
     {
         int plsCount = playerPiecesList.Count;
         bool isOdd = (plsCount % 2) == 0? false :  true;
-        // bool isOdd;
-        // if(plsCount % 2 ==0)
-        // {
-        //     isOdd = false;
-        // }
-        // else
-        // {
-        //     isOdd = true;
-        // }
+
+        int spriteLayers = 0;
+        
         int extent = plsCount / 2;
         int counter = 0;
         
@@ -62,13 +56,11 @@ public class PathPoints : MonoBehaviour
                 counter++;
             }
         }
-        // if(playerPiecesList.Count > 1)
-        // {
-        //     for(int i = 0; i < playerPiecesList.Count; i++)
-        //     {
-        //         playerPiecesList[i].transform.localScale = new Vector3(pathObjParent.scales[playerPiecesList.Count - 1], pathObjParent.scales[playerPiecesList.Count-1], 1f);
-                
-        //     }
-        // }
+        
+        for(int i =0; i< playerPiecesList.Count; i++)
+        {
+            playerPiecesList[i].GetComponent<SpriteRenderer>().sortingOrder = spriteLayers;
+            spriteLayers++;
+        }
     }
 }
