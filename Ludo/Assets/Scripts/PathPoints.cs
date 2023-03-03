@@ -30,7 +30,7 @@ public class PathPoints : MonoBehaviour
     void RescaleAndRepositionAllPlayerPieces()
     {
         int plsCount = playerPiecesList.Count;
-        bool isOdd = (plsCount % 2) == 0? false:true;
+        bool isOdd = (plsCount % 2) == 0? false :  true;
         // bool isOdd;
         // if(plsCount % 2 ==0)
         // {
@@ -49,7 +49,7 @@ public class PathPoints : MonoBehaviour
             {
                 playerPiecesList[counter].transform.localScale = new Vector3(pathObjParent.scales[plsCount - 1], pathObjParent.scales[plsCount -1], 1f);
 
-                playerPiecesList[counter].transform.localScale = new Vector3(transform.position.x + (i * pathObjParent.positionsDifference[plsCount - 1]), transform.position.y, 0f );
+                playerPiecesList[counter].transform.position = new Vector3(transform.position.x + (i * pathObjParent.positionsDifference[plsCount - 1]), transform.position.y, 0f );
                 counter++;
             }
         }
@@ -58,7 +58,8 @@ public class PathPoints : MonoBehaviour
             for(int i = -extent; i<extent; i++)
             {
                 playerPiecesList[counter].transform.localScale = new Vector3(pathObjParent.scales[plsCount-1], pathObjParent.scales[plsCount - 1], 1f);
-                playerPiecesList[counter].transform.localScale = new Vector3(transform.position.x + ( i * pathObjParent.positionsDifference[plsCount - 1]), transform.position.y, 0f);
+                playerPiecesList[counter].transform.position = new Vector3(transform.position.x + ( i * pathObjParent.positionsDifference[plsCount - 1]), transform.position.y, 0f);
+                counter++;
             }
         }
         // if(playerPiecesList.Count > 1)
