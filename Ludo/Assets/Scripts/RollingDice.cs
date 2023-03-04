@@ -9,12 +9,16 @@ public class RollingDice : MonoBehaviour
     [SerializeField] SpriteRenderer numberedSpHolder;
     [SerializeField] Sprite[] numberedSprites;
 
+    [SerializeField] AudioClip diceRollSound;
+
     bool canDiceRoll = true;
 
     Coroutine generateRanNOnDice_Coroutine;
 
     private void OnMouseDown()
     {
+        AudioSource.PlayClipAtPoint(diceRollSound, transform.position);
+
         generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
     }
     IEnumerator GenerateRandomNOnDice_Enum()
