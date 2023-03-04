@@ -68,7 +68,6 @@ public class PlayerPiece : MonoBehaviour
                 if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
                 {
                     transform.position = pathPointsToMoveOn_[i].transform.position;
-                    // GameManager.gm.RemovePathPoint(pathPointsToMoveOn_[i]);
                     GetComponent<AudioSource>().Play();
                     yield return new WaitForSeconds(0.25f);
                 }
