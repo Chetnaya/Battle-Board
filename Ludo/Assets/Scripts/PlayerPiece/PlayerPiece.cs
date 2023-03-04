@@ -34,32 +34,33 @@ public class PlayerPiece : MonoBehaviour
    {
       MoveSteps_Coroutine = StartCoroutine(MoveSteps_Enum(pathPointsToMoveOn_));
 
-      //Check if the current path point has any opponent player pieces
-      if(currentPathPoint != null)
-      {
-        foreach(PlayerPiece playerPiece in currentPathPoint.playerPiecesList)
-        {
-            if (playerPiece != this && playerPiece.color != color)
-            {
-                // Kill the opponent player piece
-                playerPiece.Kill();
-                break;
-            }
-        }
-      }
+      //Check if the current path point has any opponent player piecee
+
+    //   if(currentPathPoint != null)
+    //   {
+    //     foreach(PlayerPiece playerPiece in currentPathPoint.playerPiecesList)
+    //     {
+    //         if (playerPiece != this && playerPiece.color != color)
+    //         {
+    //             // Kill the opponent player piece
+    //             playerPiece.Kill();
+    //             break;
+    //         }
+    //     }
+    //   }
    }
 
-   public void Kill()
-   {
-    // Reposition the player piece to the original position and make it not ready to move
-    isReady = false;
-    canMove = false;
-    transform.position = originalPosition;
-    numberOfStepsAlreadyMoved = 0;
-    previousPathPoint = null;
-    currentPathPoint.RemovePlayerPiece(this);
-    currentPathPoint = null;
-    }
+//    public void Kill()
+//    {
+//     isReady = false;
+//     canMove = false;
+//     transform.position = originalPosition;
+//     numberOfStepsAlreadyMoved = 0;
+//     previousPathPoint = null;
+//     currentPathPoint.RemovePlayerPiece(this);
+//     currentPathPoint = null;
+//     }
+
 
    public void makePlayerReadyToMove(PathPoints[] pathPointsToMoveOn_)
    {
