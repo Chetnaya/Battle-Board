@@ -6983,6 +6983,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfStepsToMove: 0
   rolledDice: {fileID: 0}
+  canDiceRoll: 1
+  trasferDice: 0
+  SelfDice: 0
+  blueOutPlayers: 0
+  redOutPlayers: 0
+  yellowOutPlayers: 0
+  greenOutPlayers: 0
+  ManageRollingDice:
+  - {fileID: 1722877380}
+  - {fileID: 1870429155}
+  - {fileID: 1826417122}
+  - {fileID: 1091604174}
 --- !u!4 &1626166555
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,16 @@ public class GameManager : MonoBehaviour
 
     List<PathPoints> playerOnPathPointsList = new List<PathPoints>();
     
-    bool canDiceRoll = true;
+    public bool canDiceRoll = true;
+    public bool trasferDice = false;
+    public bool SelfDice = false;
+
+    public int blueOutPlayers;
+    public int redOutPlayers;
+    public int yellowOutPlayers;
+    public int greenOutPlayers;
+
+    public RollingDice[] ManageRollingDice;
 
 
     private void Awake()
@@ -33,6 +42,27 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Path point not found to be removed."); 
+        }
+    }
+
+    public void RollingDiceManager()
+    {
+        int nextDice;
+        if(GameManager.gm.trasferDice)
+        {
+            //To transfer
+            for(int i=0; i<4; i++)
+            {
+                // if(GameManager.gm.rolledDice == )
+            }
+        }
+        else
+        {
+            if(GameManager.gm.SelfDice)
+            {
+                GameManager.gm.SelfDice = false;
+                GameManager.gm.canDiceRoll = true;
+            }
         }
     }
 }

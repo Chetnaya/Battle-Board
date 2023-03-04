@@ -44,9 +44,12 @@ public class PlayerPiece : MonoBehaviour
 
     previousPathPoint = pathPointsToMoveOn_[0];
     currentPathPoint = pathPointsToMoveOn_[0];
-
-    // GameManager.gm.RemovePathPoint(previousPathPoint);
+    // currentPathPoint.AddPathPoint(this);
     GameManager.gm.AddPathPoint(currentPathPoint);
+
+    GameManager.gm.canDiceRoll = true;
+    GameManager.gm.SelfDice = true;
+    GameManager.gm.trasferDice = false;
 
    }
 
@@ -84,6 +87,14 @@ public class PlayerPiece : MonoBehaviour
 
             GameManager.gm.AddPathPoint(currentPathPoint);
             previousPathPoint = currentPathPoint;
+
+            if(GameManager.gm.numOfStepsToMove != 6 && GameManager.gm.blueOutPlayers==0)
+            {
+                GameManager.gm.canDiceRoll = true;
+                GameManager.gm.SelfDice = false;
+                GameManager.gm.trasferDice = true;
+
+            }
         }
 
         if(MoveSteps_Coroutine != null)

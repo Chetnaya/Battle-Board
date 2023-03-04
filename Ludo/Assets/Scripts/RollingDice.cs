@@ -23,9 +23,9 @@ public class RollingDice : MonoBehaviour
     IEnumerator GenerateRandomNOnDice_Enum()
     {
         yield return new WaitForEndOfFrame();
-        if(canDiceRoll)
+        if(GameManager.gm.canDiceRoll)
         {
-            canDiceRoll = false;
+            GameManager.gm.canDiceRoll = false;
             numberedSpHolder.gameObject.SetActive(false);
             rollingDiceAnimation.SetActive(true);
             yield return new WaitForSeconds(1f);
@@ -41,7 +41,7 @@ public class RollingDice : MonoBehaviour
             rollingDiceAnimation.SetActive(false);
             yield return new WaitForEndOfFrame();
 
-            canDiceRoll = true;
+           
             if(generateRanNOnDice_Coroutine != null)
             {
                 StopCoroutine(generateRanNOnDice_Coroutine);    
