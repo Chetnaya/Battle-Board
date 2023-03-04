@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
                     GameManager.gm.ManageRollingDice[nextDice].gameObject.SetActive(true);
                 }
             }
+            GameManager.gm.canDiceRoll = true;
         }
         else
         {

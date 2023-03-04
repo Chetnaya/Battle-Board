@@ -78,8 +78,7 @@ public class PlayerPiece : MonoBehaviour
         if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
         {
             numberOfStepsAlreadyMoved += numOfStepsToMove;
-            GameManager.gm.numOfStepsToMove = 0;
-
+        
             GameManager.gm.RemovePathPoint(previousPathPoint);
             previousPathPoint.RemovePlayerPiece(this);
             currentPathPoint = pathPointsToMoveOn_[numberOfStepsAlreadyMoved - 1];
@@ -87,6 +86,19 @@ public class PlayerPiece : MonoBehaviour
             currentPathPoint.AddPlayerPiece(this);
             GameManager.gm.AddPathPoint(currentPathPoint);
             previousPathPoint = currentPathPoint;
+
+            if(GameManager.gm.numOfStepsToMove != 6)
+            {
+                GameManager.gm.SelfDice = false;
+                GameManager.gm.trasferDice = true;
+            }
+            else
+            {
+                GameManager.gm.SelfDice = true;
+                GameManager.gm.trasferDice = false;
+            }
+            GameManager.gm.numOfStepsToMove = 0;
+
 
            
         }

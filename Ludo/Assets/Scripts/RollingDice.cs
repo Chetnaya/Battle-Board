@@ -14,6 +14,7 @@ public class RollingDice : MonoBehaviour
     // bool canDiceRoll = true;
 
     Coroutine generateRanNOnDice_Coroutine;
+    public int outPieces;
 
     private void OnMouseDown()
     {
@@ -41,12 +42,31 @@ public class RollingDice : MonoBehaviour
             rollingDiceAnimation.SetActive(false);
             yield return new WaitForEndOfFrame();
 
-            if(GameManager.gm.numOfStepsToMove != 6 && GameManager.gm.blueOutPlayers==0)
+            if(GameManager.gm.rolledDice == GameManager.gm.ManageRollingDice[0])
+            {
+                outPieces = GameManager.gm.blueOutPlayers;
+            }
+            else if(GameManager.gm.rolledDice == GameManager.gm.ManageRollingDice[1])
+            {
+                outPieces = GameManager.gm.redOutPlayers;
+            }
+            else if(GameManager.gm.rolledDice == GameManager.gm.ManageRollingDice[2])
+            {
+                outPieces = GameManager.gm.greenOutPlayers;
+            }
+            else if(GameManager.gm.rolledDice == GameManager.gm.ManageRollingDice[3])
+            {
+                outPieces = GameManager.gm.yellowOutPlayers;
+            }
+
+//________________________________________________________________________________________________________
+
+            if(GameManager.gm.numOfStepsToMove != 6 && outPieces==0)
             {
                 GameManager.gm.canDiceRoll = true;
                 GameManager.gm.SelfDice = false;
                 GameManager.gm.trasferDice = true;
-                
+
                 GameManager.gm.RollingDiceManager();
 
             }
