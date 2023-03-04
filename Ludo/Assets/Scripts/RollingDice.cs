@@ -11,14 +11,13 @@ public class RollingDice : MonoBehaviour
 
     [SerializeField] AudioClip diceRollSound;
 
-    bool canDiceRoll = true;
+    // bool canDiceRoll = true;
 
     Coroutine generateRanNOnDice_Coroutine;
 
     private void OnMouseDown()
     {
         AudioSource.PlayClipAtPoint(diceRollSound, transform.position);
-
         generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
     }
     IEnumerator GenerateRandomNOnDice_Enum()

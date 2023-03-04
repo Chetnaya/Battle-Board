@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public RollingDice rolledDice;
 
     List<PathPoints> playerOnPathPointsList = new List<PathPoints>();
+    
+    bool canDiceRoll = true;
+
 
     private void Awake()
     {
