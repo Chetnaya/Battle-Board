@@ -33,33 +33,7 @@ public class PlayerPiece : MonoBehaviour
    public void MoveSteps(PathPoints[] pathPointsToMoveOn_)
    {
       MoveSteps_Coroutine = StartCoroutine(MoveSteps_Enum(pathPointsToMoveOn_));
-
-      //Check if the current path point has any opponent player piecee
-
-    //   if(currentPathPoint != null)
-    //   {
-    //     foreach(PlayerPiece playerPiece in currentPathPoint.playerPiecesList)
-    //     {
-    //         if (playerPiece != this && playerPiece.color != color)
-    //         {
-    //             // Kill the opponent player piece
-    //             playerPiece.Kill();
-    //             break;
-    //         }
-    //     }
-    //   }
    }
-
-//    public void Kill()
-//    {
-//     isReady = false;
-//     canMove = false;
-//     transform.position = originalPosition;
-//     numberOfStepsAlreadyMoved = 0;
-//     previousPathPoint = null;
-//     currentPathPoint.RemovePlayerPiece(this);
-//     currentPathPoint = null;
-//     }
 
 
    public void makePlayerReadyToMove(PathPoints[] pathPointsToMoveOn_)
@@ -92,6 +66,7 @@ public class PlayerPiece : MonoBehaviour
                 {
                     transform.position = pathPointsToMoveOn_[i].transform.position;
                     // GameManager.gm.RemovePathPoint(pathPointsToMoveOn_[i]);
+                    GetComponent<AudioSource>().Play();
                     yield return new WaitForSeconds(0.25f);
                 }
             }    

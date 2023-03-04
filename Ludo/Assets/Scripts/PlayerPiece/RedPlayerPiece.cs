@@ -29,7 +29,7 @@ public class RedPlayerPiece : PlayerPiece
                 canMove = true;   
             }
         }
-
+        
         MoveSteps(pathsParent.RedPathPoints);
     }
 }
