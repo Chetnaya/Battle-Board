@@ -53,7 +53,20 @@ public class GameManager : MonoBehaviour
             //To transfer
             for(int i=0; i<4; i++)
             {
-                // if(GameManager.gm.rolledDice == )
+                if(i==3)
+                {
+                    nextDice = 0; 
+                }
+                else
+                {
+                    nextDice = i+1;
+                }
+
+                if(GameManager.gm.rolledDice == GameManager.gm.ManageRollingDice[i])
+                {
+                    GameManager.gm.ManageRollingDice[i].gameObject.SetActive(false);
+                    GameManager.gm.ManageRollingDice[nextDice].gameObject.SetActive(true);
+                }
             }
         }
         else

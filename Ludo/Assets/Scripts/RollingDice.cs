@@ -41,6 +41,18 @@ public class RollingDice : MonoBehaviour
             rollingDiceAnimation.SetActive(false);
             yield return new WaitForEndOfFrame();
 
+            if(GameManager.gm.numOfStepsToMove != 6 && GameManager.gm.blueOutPlayers==0)
+            {
+                GameManager.gm.canDiceRoll = true;
+                GameManager.gm.SelfDice = false;
+                GameManager.gm.trasferDice = true;
+                
+                GameManager.gm.RollingDiceManager();
+
+            }
+
+            // GameManager.gm.RollingDiceManager();
+
            
             if(generateRanNOnDice_Coroutine != null)
             {

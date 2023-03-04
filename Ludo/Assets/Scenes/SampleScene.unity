@@ -8355,6 +8355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RollingDice_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254707, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: diceRollSound
       value: 
@@ -8821,6 +8825,10 @@ PrefabInstance:
     - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_Name
       value: RollingDice_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254707, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: diceRollSound
@@ -10653,6 +10661,10 @@ PrefabInstance:
     - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: m_Name
       value: RollingDice_yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766560228035254706, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3766560228035254707, guid: ff6e92f0f538b7f4d8080e87703b5018, type: 3}
       propertyPath: diceRollSound

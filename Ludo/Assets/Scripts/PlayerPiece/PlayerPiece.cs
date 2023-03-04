@@ -78,24 +78,21 @@ public class PlayerPiece : MonoBehaviour
         if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
         {
             numberOfStepsAlreadyMoved += numOfStepsToMove;
+            GameManager.gm.numOfStepsToMove = 0;
 
             GameManager.gm.RemovePathPoint(previousPathPoint);
             previousPathPoint.RemovePlayerPiece(this);
             currentPathPoint = pathPointsToMoveOn_[numberOfStepsAlreadyMoved - 1];
 
             currentPathPoint.AddPlayerPiece(this);
-
             GameManager.gm.AddPathPoint(currentPathPoint);
             previousPathPoint = currentPathPoint;
 
-            if(GameManager.gm.numOfStepsToMove != 6 && GameManager.gm.blueOutPlayers==0)
-            {
-                GameManager.gm.canDiceRoll = true;
-                GameManager.gm.SelfDice = false;
-                GameManager.gm.trasferDice = true;
-
-            }
+           
         }
+
+        // GameManager.gm.canMove = true;
+        GameManager.gm.RollingDiceManager();
 
         if(MoveSteps_Coroutine != null)
         {
