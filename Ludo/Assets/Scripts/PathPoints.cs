@@ -45,24 +45,38 @@ public class PathPoints : MonoBehaviour
 
     void revertOnStart(PlayerPiece playerPiece_)
     {
-        if(playerPiece_.name.Contains("Blue"))
+        //To set the position after the player is killed :))
+        playerPiecesList[0].transform.position = pathObjParent.BasePathPoints[basePointPosition(playerPiece_.name)].transform.position;
+    }
+
+    int basePointPosition(string name)
+    {
+        if(name.Contains("Blue"))
         {
             GameManager.gm.blueOutPlayers -= 1;
         }
-        else if(playerPiece_.name.Contains("Yellow"))
+        else if(name.Contains("Yellow"))
         {
             GameManager.gm.yellowOutPlayers -= 1;
         }
-        else if(playerPiece_.name.Contains("Red"))
+        else if(name.Contains("Red"))
         {
             GameManager.gm.redOutPlayers -= 1;
         }
-        else if(playerPiece_.name.Contains("Green"))
+        else if(name.Contains("Green"))
         {
             GameManager.gm.greenOutPlayers -= 1;
         }
-        //To set the position after the player is killed :))
-        playerPiecesList[0].transform.position = new Vector3(-0.149f,   0.463f, 0f);
+
+        for(int i =0; i< pathObjParent.BasePathPoints.Length; i++)
+        {
+            if(pathObjParent.BasePathPoints[i].name == name)
+            {
+                return i;
+            }
+
+        }
+        return -1;
     }
 
     void addPlayer(PlayerPiece playerPiece_)
