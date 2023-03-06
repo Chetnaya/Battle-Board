@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PathPoints : MonoBehaviour
+
 {
+    PathPoints[] pathToMoveOn;
     public PathObjectsParent pathObjParent;
     public List<PlayerPiece> playerPiecesList  = new List<PlayerPiece>();
 
@@ -25,7 +27,7 @@ public class PathPoints : MonoBehaviour
             {
                 playerPiecesList[0].isReady = false;
 
-                revertOnStart(playerPiecesList[0]);
+                StartCoroutine( revertOnStart(playerPiecesList[0]));
                 
                 // GameManager.gm.blueOutPlayers += 1;
                 // //To set the position after the player is killed :))
@@ -43,30 +45,57 @@ public class PathPoints : MonoBehaviour
         return true;
     }
 
-    void revertOnStart(PlayerPiece playerPiece_)
+    IEnumerator revertOnStart(PlayerPiece playerPiece_)
     {
+        if(playerPiece_.name.Contains("Blue"))
+        {
+            GameManager.gm.blueOutPlayers -= 1;
+            pathToMoveOn = pathObjParent.BluePathPoints;
+        }
+        else if(playerPiece_.name.Contains("Yellow"))
+        {
+            GameManager.gm.yellowOutPlayers -= 1;
+            pathToMoveOn = pathObjParent.YellowPathPoints;
+        }
+        else if(playerPiece_.name.Contains("Red"))
+        {
+            GameManager.gm.redOutPlayers -= 1;
+            pathToMoveOn = pathObjParent.RedPathPoints;
+        }
+        else if(playerPiece_.name.Contains("Green"))
+        {
+            GameManager.gm.greenOutPlayers -= 1;
+            pathToMoveOn = pathObjParent.GreenPathPoints;
+        }
+
+        for(int i=playerPiece_.numberOfStepsAlreadyMoved; i<= 0; i--)
+        {
+            playerPiece_.transform.position = pathToMoveOn[i].transform.position;
+            yield return new WaitForSeconds(0.02f);
+        }
+
         //To set the position after the player is killed :))
         playerPiecesList[0].transform.position = pathObjParent.BasePathPoints[basePointPosition(playerPiece_.name)].transform.position;
     }
 
     int basePointPosition(string name)
     {
-        if(name.Contains("Blue"))
-        {
-            GameManager.gm.blueOutPlayers -= 1;
-        }
-        else if(name.Contains("Yellow"))
-        {
-            GameManager.gm.yellowOutPlayers -= 1;
-        }
-        else if(name.Contains("Red"))
-        {
-            GameManager.gm.redOutPlayers -= 1;
-        }
-        else if(name.Contains("Green"))
-        {
-            GameManager.gm.greenOutPlayers -= 1;
-        }
+        // if(name.Contains("Blue"))
+        // {
+        //     GameManager.gm.blueOutPlayers -= 1;
+        // }
+        // else if(name.Contains("Yellow"))
+        // {
+        //     GameManager.gm.yellowOutPlayers -= 1;
+        // }
+        // else if(name.Contains("Red"))
+        // {
+        //     GameManager.gm.redOutPlayers -= 1;
+        // }
+        // else if(name.Contains("Green"))
+        // {
+        //     GameManager.gm.greenOutPlayers -= 1;
+        // }
 
         for(int i =0; i< pathObjParent.BasePathPoints.Length; i++)
         {
