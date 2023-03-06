@@ -14,13 +14,30 @@ public class PathPoints : MonoBehaviour
 
     public bool AddPlayerPiece(PlayerPiece playerPiece_)
     {
-        if(playerPiecesList.Count > 0 )
+        if(playerPiecesList.Count == 1 )
         {
             string prePlayerPieceName = playerPiecesList[0].name;
             string currentPlayerPieceName = playerPiece_.name;
+
+            currentPlayerPieceName = currentPlayerPieceName.Substring(0, currentPlayerPieceName.Length-4);
+
+            if(!prePlayerPieceName.Contains(currentPlayerPieceName))
+            {
+                playerPiecesList[0].isReady = false;
+
+                //To set the position after the player is killed :))
+                playerPiecesList[0].transform.position = new Vector3(-0.149f,   0.463f, 0f);
+
+                playerPiecesList[0].numberOfStepsAlreadyMoved = 0;
+
+                RemovePlayerPiece(playerPiecesList[0]);
+                playerPiecesList.Add(playerPiece_);
+
+                return false;
+            }
         }
         addPlayer(playerPiece_);
-        return false;
+        return true;
     }
 
     void addPlayer(PlayerPiece playerPiece_)
