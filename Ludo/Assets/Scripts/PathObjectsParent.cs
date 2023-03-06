@@ -9,6 +9,9 @@ public class PathObjectsParent : MonoBehaviour
    public PathPoints[] BluePathPoints;
    public PathPoints[] GreenPathPoints;
    public PathPoints[] YellowPathPoints;
+   
+   public PathPoints[] BasePathPoints;
+
 
    [Header("Scales and Positions Difference")]
    public float[] scales;
