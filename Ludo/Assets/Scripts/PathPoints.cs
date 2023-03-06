@@ -12,7 +12,18 @@ public class PathPoints : MonoBehaviour
         pathObjParent = GetComponentInParent<PathObjectsParent>();  
     }
 
-    public void AddPlayerPiece(PlayerPiece playerPiece_)
+    public bool AddPlayerPiece(PlayerPiece playerPiece_)
+    {
+        if(playerPiecesList.Count > 0 )
+        {
+            string prePlayerPieceName = playerPiecesList[0].name;
+            string currentPlayerPieceName = playerPiece_.name;
+        }
+        addPlayer(playerPiece_);
+        return false;
+    }
+
+    void addPlayer(PlayerPiece playerPiece_)
     {
         playerPiecesList.Add(playerPiece_);
         RescaleAndRepositionAllPlayerPieces();
