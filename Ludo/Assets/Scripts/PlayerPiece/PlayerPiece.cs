@@ -97,9 +97,7 @@ public class PlayerPiece : MonoBehaviour
                 GameManager.gm.trasferDice = false;
             }
             GameManager.gm.numOfStepsToMove = 0;
-
-
-           
+   
         }
 
         // GameManager.gm.canMove = true;

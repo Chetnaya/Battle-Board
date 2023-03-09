@@ -28,10 +28,10 @@ public class YellowPlayerPiece : PlayerPiece
             if (GameManager.gm.rolledDice == yellowHomeRollingDice && isReady)
             {
                 canMove = true;   
+                MoveSteps(pathsParent.YellowPathPoints);
             }
         }
 
-        MoveSteps(pathsParent.YellowPathPoints);
     }
 }
 

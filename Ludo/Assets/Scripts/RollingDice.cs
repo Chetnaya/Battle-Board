@@ -42,6 +42,7 @@ public class RollingDice : MonoBehaviour
             numberedSpHolder.gameObject.SetActive(true);
             rollingDiceAnimation.SetActive(false);
             yield return new WaitForEndOfFrame();
+//_________________________________________________________________________________________________________
 
             if(GameManager.gm.rolledDice == GameManager.gm.ManageRollingDice[0])
             {

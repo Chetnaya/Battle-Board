@@ -27,10 +27,11 @@ public class RedPlayerPiece : PlayerPiece
             }
             if (GameManager.gm.rolledDice == redHomeRollingDice && isReady)
             {
-                canMove = true;   
+                canMove = true; 
+                MoveSteps(pathsParent.RedPathPoints);  
             }
         }
         
-        MoveSteps(pathsParent.RedPathPoints);
+        // MoveSteps(pathsParent.RedPathPoints);
     }
 }
