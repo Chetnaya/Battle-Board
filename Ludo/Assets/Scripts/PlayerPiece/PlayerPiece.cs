@@ -66,6 +66,7 @@ public class PlayerPiece : MonoBehaviour
 
             for(int i =numberOfStepsAlreadyMoved; i< (numberOfStepsAlreadyMoved +numOfStepsToMove); i++)
             {   
+                currentPathPoint.RescaleAndRepositionAllPlayerPieces();
                 if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
                 {
                     transform.position = pathPointsToMoveOn_[i].transform.position;
@@ -111,16 +112,6 @@ public class PlayerPiece : MonoBehaviour
             GameManager.gm.AddPathPoint(currentPathPoint);
             previousPathPoint = currentPathPoint;
             GameManager.gm.numOfStepsToMove = 0;
-   
-
-            // if(GameManager.gm.numOfStepsToMove != 6)
-            // {
-            //     GameManager.gm.trasferDice = true;
-            // }
-            // else
-            // {
-            //     GameManager.gm.SelfDice = true;
-            // }
         }
 
         // GameManager.gm.canMove = true;
