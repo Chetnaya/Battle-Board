@@ -55,6 +55,7 @@ public class PlayerPiece : MonoBehaviour
 
    IEnumerator MoveSteps_Enum(PathPoints[] pathPointsToMoveOn_)
     {
+        GameManager.gm.trasferDice = false;
         yield return new WaitForSeconds(0.25f);
 
         int numOfStepsToMove = GameManager.gm.numOfStepsToMove;
@@ -76,28 +77,50 @@ public class PlayerPiece : MonoBehaviour
         
         if(isPathPointAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
         {
+            // GameManager.gm.trasferDice = false;
             numberOfStepsAlreadyMoved += numOfStepsToMove;
         
             GameManager.gm.RemovePathPoint(previousPathPoint);
             previousPathPoint.RemovePlayerPiece(this);
             currentPathPoint = pathPointsToMoveOn_[numberOfStepsAlreadyMoved - 1];
 
-            currentPathPoint.AddPlayerPiece(this);
-            GameManager.gm.AddPathPoint(currentPathPoint);
-            previousPathPoint = currentPathPoint;
-
-            if(GameManager.gm.numOfStepsToMove != 6)
+            if(currentPathPoint.AddPlayerPiece(this))
             {
-                GameManager.gm.SelfDice = false;
-                GameManager.gm.trasferDice = true;
+                if(numberOfStepsAlreadyMoved == 57)
+                {
+                    GameManager.gm.SelfDice = true;
+                }
+                else
+                {
+                    if(GameManager.gm.numOfStepsToMove != 6)
+                    {
+                        GameManager.gm.trasferDice = true;
+                    }
+                    else
+                    {
+                        GameManager.gm.SelfDice = true;
+                    }
+                }
             }
             else
             {
                 GameManager.gm.SelfDice = true;
-                GameManager.gm.trasferDice = false;
             }
+
+
+            GameManager.gm.AddPathPoint(currentPathPoint);
+            previousPathPoint = currentPathPoint;
             GameManager.gm.numOfStepsToMove = 0;
    
+
+            // if(GameManager.gm.numOfStepsToMove != 6)
+            // {
+            //     GameManager.gm.trasferDice = true;
+            // }
+            // else
+            // {
+            //     GameManager.gm.SelfDice = true;
+            // }
         }
 
         // GameManager.gm.canMove = true;
