@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             GameManager.gm.canDiceRoll = true;
         }
         else
-        {
+        {  
             if(GameManager.gm.SelfDice)
             {
                 GameManager.gm.SelfDice = false;

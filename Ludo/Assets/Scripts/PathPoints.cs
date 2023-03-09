@@ -16,25 +16,30 @@ public class PathPoints : MonoBehaviour
 
     public bool AddPlayerPiece(PlayerPiece playerPiece_)
     {
-        if(playerPiecesList.Count == 1 )
+        //If statement so that player will not kill on the star points.
+        if(this.name !="PathPoint" &&  this.name != "PathPoint (8)" &&  this.name != "PathPoint (14)" &&  this.name != "PathPoint (22)" &&  this.name != "PathPoint (27)" &&  this.name != "PathPoint (35)" &&  this.name != "PathPoint (40)" &&  this.name != "PathPoint (50)" &&  this.name != "CenterPoint")
         {
-            string prePlayerPieceName = playerPiecesList[0].name;
-            string currentPlayerPieceName = playerPiece_.name;
-
-            currentPlayerPieceName = currentPlayerPieceName.Substring(0, currentPlayerPieceName.Length-4);
-
-            if(!prePlayerPieceName.Contains(currentPlayerPieceName))
+            //Code to kill the players.
+            if(playerPiecesList.Count == 1 )
             {
-                playerPiecesList[0].isReady = false;
+                string prePlayerPieceName = playerPiecesList[0].name;
+                string currentPlayerPieceName = playerPiece_.name;
 
-                StartCoroutine( revertOnStart(playerPiecesList[0]));
+                currentPlayerPieceName = currentPlayerPieceName.Substring(0, currentPlayerPieceName.Length-4);
 
-                playerPiecesList[0].numberOfStepsAlreadyMoved = 0;
+                if(!prePlayerPieceName.Contains(currentPlayerPieceName))
+                {
+                    playerPiecesList[0].isReady = false;
 
-                RemovePlayerPiece(playerPiecesList[0]);
-                playerPiecesList.Add(playerPiece_);
+                    StartCoroutine( revertOnStart(playerPiecesList[0]));
 
-                return false;
+                    playerPiecesList[0].numberOfStepsAlreadyMoved = 0;
+
+                    RemovePlayerPiece(playerPiecesList[0]);
+                    playerPiecesList.Add(playerPiece_);
+
+                    return false;
+                }
             }
         }
         addPlayer(playerPiece_);
