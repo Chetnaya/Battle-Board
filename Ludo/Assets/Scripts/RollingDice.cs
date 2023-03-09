@@ -7,24 +7,25 @@ public class RollingDice : MonoBehaviour
     [SerializeField] int numberGot;
     [SerializeField] GameObject rollingDiceAnimation;
     [SerializeField] SpriteRenderer numberedSpHolder;
+
+    // Array of numbered sprites
     [SerializeField] Sprite[] numberedSprites;
 
     [SerializeField] AudioClip diceRollSound;
 
-    // bool canDiceRoll = true;
-
     Coroutine generateRanNOnDice_Coroutine;
-    public int outPieces;
+    public int outPieces;// The number of pieces that are outside the board
 
     private void OnMouseDown()
     {
         AudioSource.PlayClipAtPoint(diceRollSound, transform.position);
+        // Start coroutine to generate random number on dice
         generateRanNOnDice_Coroutine = StartCoroutine(GenerateRandomNOnDice_Enum());
     }
     IEnumerator GenerateRandomNOnDice_Enum()
     {
         yield return new WaitForEndOfFrame();
-        if(GameManager.gm.canDiceRoll)
+        if(GameManager.gm.canDiceRoll)// Check if dice can be rolled
         {
             GameManager.gm.canDiceRoll = false;
             numberedSpHolder.gameObject.SetActive(false);
@@ -58,7 +59,6 @@ public class RollingDice : MonoBehaviour
             {
                 outPieces = GameManager.gm.yellowOutPlayers;
             }
-
 //________________________________________________________________________________________________________
 
             if(GameManager.gm.numOfStepsToMove != 6 && outPieces==0)
@@ -72,9 +72,6 @@ public class RollingDice : MonoBehaviour
 
             }
 
-            // GameManager.gm.RollingDiceManager();
-
-           
             if(generateRanNOnDice_Coroutine != null)
             {
                 StopCoroutine(generateRanNOnDice_Coroutine);    
