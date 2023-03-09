@@ -28,10 +28,6 @@ public class PathPoints : MonoBehaviour
                 playerPiecesList[0].isReady = false;
 
                 StartCoroutine( revertOnStart(playerPiecesList[0]));
-                
-                // GameManager.gm.blueOutPlayers += 1;
-                // //To set the position after the player is killed :))
-                // playerPiecesList[0].transform.position = new Vector3(-0.149f,   0.463f, 0f);
 
                 playerPiecesList[0].numberOfStepsAlreadyMoved = 0;
 
@@ -68,35 +64,19 @@ public class PathPoints : MonoBehaviour
             pathToMoveOn = pathObjParent.GreenPathPoints;
         }
 
-        for(int i=playerPiece_.numberOfStepsAlreadyMoved; i<= 0; i--)
+        //To move the player back to same path after being killed.
+        for(int i=playerPiece_.numberOfStepsAlreadyMoved; i>= 0; i--)
         {
             playerPiece_.transform.position = pathToMoveOn[i].transform.position;
             yield return new WaitForSeconds(0.02f);
         }
 
-        //To set the position after the player is killed :))
-        playerPiecesList[0].transform.position = pathObjParent.BasePathPoints[basePointPosition(playerPiece_.name)].transform.position;
+        //To set the position after the player is killed 
+        playerPiece_.transform.position = pathObjParent.BasePathPoints[basePointPosition(playerPiece_.name)].transform.position;
     }
 
     int basePointPosition(string name)
     {
-        // if(name.Contains("Blue"))
-        // {
-        //     GameManager.gm.blueOutPlayers -= 1;
-        // }
-        // else if(name.Contains("Yellow"))
-        // {
-        //     GameManager.gm.yellowOutPlayers -= 1;
-        // }
-        // else if(name.Contains("Red"))
-        // {
-        //     GameManager.gm.redOutPlayers -= 1;
-        // }
-        // else if(name.Contains("Green"))
-        // {
-        //     GameManager.gm.greenOutPlayers -= 1;
-        // }
-
         for(int i =0; i< pathObjParent.BasePathPoints.Length; i++)
         {
             if(pathObjParent.BasePathPoints[i].name == name)
